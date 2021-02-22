@@ -1,0 +1,52 @@
+.details
+{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 8px;
+}
+.title
+{   
+    text-align: center;
+}
+.image
+{   text-align: center;
+    grid-row: 1/2;
+    border: 5px;
+}
+img
+{
+    width: 40%;
+    height: auto;
+}
+div .price
+{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.para
+{    grid-row: 2/3;
+    text-align: center;
+    margin: auto;
+    max-width: 50%;
+}
+.button
+{
+    text-align: center;
+}
+button
+{cursor: pointer;
+    width: 35%;
+    height: 3rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    margin-bottom: 3%;
+   }
+   @media(max-width: 700px)
+{   img {
+    width: 70%;
+} 
+
+}

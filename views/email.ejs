@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <%- include('./nav.ejs')  %>
+<%if(error) {%>
+    <div style="text-align: center; color: red;"><%=error%></div>  
+<%}%>
+<section class="form ">
+   <form action="/reset" method="POST" >
+       <h2>Enter your information</h3>
+    <label for="">Enter your email:</label><br>
+    <input class="input email" name="email" placeholder="Enter email" type="text"><br><br>
+    <button type="submit" class="add log">Confirm</button>
+    <input type="hidden" name="user" value="<%=user%>">
+</form> 
+</section>
+</body>
+</html>

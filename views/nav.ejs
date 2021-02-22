@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/items.css">
+    <link rel="stylesheet" href="/search.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="fontawesome-free-5.14.0-web/css/all.css">
+</head>
+<body>
+<header>
+<nav class="nav">
+<ul class="nav1">
+    <li><a <% if(path=="/") { %>   class="active" <% } else { %> class="" <% } %>  href="/">Home</a></li>
+    <%if(buyer) { %>
+    <li><a <% if(path=="/products") { %>   class="active" <% } else { %> class="" <% } %>  href="/products">Products</a></li>
+    <li><a <% if(path=="/cart") { %>   class="active" <% } else { %> class="" <% } %>  href="/cart">Cart</a></li>
+    <li><a <% if(path=="/orders") { %>   class="active" <% } else { %> class="" <% } %> href="/orders">Orders</a></li>
+    <%  } else if(seller) {%>
+    <li><a <% if(path=="/input") { %>   class="active" <% } else { %> class="" <% } %>  href="/input">Sell Products</a></li>
+    <li><a <% if(path=="/myproducts") { %>   class="active" <% } else { %> class="" <% } %>  href="/myproducts">My Products</a></li>
+        <% } %>
+</ul>
+<ul class="nav2">
+    <% if(buyer || seller) {%>
+    <form action="/logout" method="POST">
+        <li><button type="submit">LogOut</button></li>
+    </form>
+    <% } else { %>
+        <li><a  <% if(path=="/ask/signin") { %>   class="active" <% } else { %> class="" <% } %>  href="/ask/signin">SignUp</a></li>
+        <li><a   <% if(path=="/ask/login") { %>   class="active" <% } else { %> class="" <% } %>href="/ask/login">LogIn</a></li>
+    <% } %>
+</ul>
+</nav>
+</header>
+</html>

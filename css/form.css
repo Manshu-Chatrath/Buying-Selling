@@ -1,0 +1,116 @@
+.section_form
+{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 500px;
+    padding-bottom: 10px;
+}
+.input
+{
+    margin-bottom: 10px;
+    border-radius: 4px;
+    height: 25px;
+    padding-left: 8px;
+    width: 20rem;
+    border: 2px solid black;
+}
+textarea
+{
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    border: 2px solid black;
+    width: 20.5rem;
+}
+.file
+{    width: 20.5rem;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-radius: 4px;
+    border: 2px solid black;
+}
+.visible
+{
+    visibility: hidden;
+}
+.line,.line1,.line2
+{  
+    color: red;
+    font-size: 10px;
+}
+.add
+{cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    margin-top: 2F0px;
+}
+
+.form
+{
+    display: flex;
+    justify-content: space-around;
+    margin: auto auto;
+    padding-bottom: 10px;
+    max-width: 500px;
+}
+
+h2
+{
+    text-align: center;
+}
+.this_form
+{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+.sign
+{
+margin-left: 23%;
+margin-top: 10%;
+}
+.log
+{
+    margin-left: 23%;
+    margin-top: 5%;
+}
+.email,.password
+{
+    margin-bottom: 0px;
+}
+@media(max-width: 560px)
+{
+    .this_form
+{
+   box-shadow: none;
+}
+}
+@media(max-width: 500px)
+{
+    .section_form
+{
+   box-shadow: none;
+}
+
+.input
+{
+    width:  15rem;
+
+}
+.file
+{    width: 15.5rem;
+}
+textarea
+{
+    width: 15.5rem;
+}
+}
+a
+{
+    text-decoration: none;;
+}

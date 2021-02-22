@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <%- include('./nav.ejs')  %>
+    <% if(error) { %>
+        <div style="text-align: center; color: red;"><%=error%></div>
+        <% } %>
+<section class="form ">
+   <form action="/signin"  method="POST" >
+       <h2>Enter your information</h3>
+    <label  for="">Email:</label><br>
+    <input type="email" name="email" required class="input email" placeholder="Enter email" type="text" value="<%=oldInput.email%>"><br>
+    <div class="line1 visible">Its not an valid email</div><br>
+    <label for="">Password:</label><br>
+    <input type="password" name="password" required class="input password" placeholder="Enter your password" type="password" value="<%=oldInput.password%>">
+    <div class="line visible">Your password length is less than 6</div><br>
+    <label for="">Confirm Password:</label>
+    <br>
+    <input type="password" name="confirmpassword" required class=" input confirmpassword" placeholder="Reneter your password" type="password">
+    <div class="line2 visible">Your password length is less than 6</div><br>
+        <input type="hidden" name="user" value="<%=user%>">
+    <button class="add sign">Sign Up</button>
+</form> 
+</section>
+<script>
+let email=document.querySelector('.email');
+let password=document.querySelector('.password');
+let confirmpassword=document.querySelector('.confirmpassword');
+let signIn=document.querySelector('.sign');
+let line=document.querySelector('.line');
+let line1=document.querySelector('.line1');
+let line2=document.querySelector('.line2');
+email.oninput=function()
+{   
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(re.test(this.value))
+    {
+        signIn.disabled=false;
+        line1.classList.add('visible');
+        console.log(true);
+    }
+
+    else
+    {    signIn.disabled=true;
+        line1.classList.remove('visible');
+    }
+}
+
+confirmpassword.oninput=function()
+{console.log("haha")
+    if(this.value.length<6)
+    {
+        signIn.disabled=true;
+        line2.classList.remove('visible')
+    }
+    else
+    {
+        signIn.disabled=false;
+        line2.classList.add('visible');
+    }
+}
+password.oninput=function()
+{
+    if(this.value.length<6)
+    {
+        signIn.disabled=true;
+        line.classList.remove('visible')
+    }
+    else
+    {
+        signIn.disabled=false;
+        line.classList.add('visible');
+    }
+}
+
+</script>
+</body>
+</html>

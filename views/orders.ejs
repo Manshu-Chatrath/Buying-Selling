@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/orders.css">
+</head>
+<body>
+    <%- include('./nav.ejs')  %>
+    <%if(products.length<1|| products==undefined) {%>
+        <h1>You have not order anything</h1>
+        <% } else {%>
+    <%for(let i=0;i<products.length;i++) {%>
+<section class="orders">
+<div class="heading">Order - <%=products[i].order_id%></div>
+<div class="info"><%=products[i].title%> - (<%=products[i].quantity%>)</div>
+</section>
+<% }%>
+<%}%>
+</body>
+</html>

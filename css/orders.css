@@ -1,0 +1,18 @@
+.orders
+{
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    box-shadow: 2px 2px 2px 2px grey;
+    margin-bottom: 1%;
+}
+.orders div
+{
+    margin-left: 3%;
+}
+
+.heading
+{
+    font-size: 24px;
+    font-weight: bold;
+}

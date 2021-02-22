@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/items.css">
+    <link rel="stylesheet" href="/search.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="fontawesome-free-5.14.0-web/css/all.css">
+</head>
+
+<body>
+    <%- include('./nav.ejs')  %>
+<main class="main">
+    <%- include('./search.ejs')  %>
+<section class="items">
+    <%if(!products || products.length===0) {%>
+        <h1 style="text-align: center;">No Products Found!</h1>
+        <% } else if(products) {%>
+    <%  for(let i=0;i<products.length;i++) { %>
+    <div class="item">
+        <div class="common item-front">
+        <div class="title"><%=products[i].title%></div>
+        <img class="image" src="<%=products[i].image%>" alt="">
+        <div class="price">Price: <%=products[i].price%>$</div>
+    </div>
+    <div class="common item-back" style="width: 100%;">
+        <div class="title-back"><%=products[i].title%></div>
+        <div class="summary"><%=products[i].summary%></div>
+        <form action="/delete" method="POST">
+            <input type="hidden" name="productId" value="<%=products[i].id%>">
+            <input type="hidden" name="sellerId" value="<%=products[i].seller_id%>">
+        <div class="buttons">
+        <a  class="edit-button"  href="/edit-product/<%=products[i].id%>?editing=true">Edit</a>
+        <button type="submit" style="border: 1px solid gray;" class="view">Delete</button>
+        </div>
+    </form>
+    </div>
+    </div>
+    <% } %>
+</section>
+    <% }%>
+</main>
+</body>
+</html>

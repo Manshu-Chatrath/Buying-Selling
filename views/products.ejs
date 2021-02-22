@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/items.css">
+    <link rel="stylesheet" href="/search.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="fontawesome-free-5.14.0-web/css/all.css">
+</head>
+<body>
+    <%- include('./nav.ejs')  %>
+<main class="main">
+<%- include('./search.ejs')%>
+<section class="items">
+        <%if(!products || products.length===0) {%>
+            <h1 style="text-align: center;">No Products Found!</h1>
+            <% } else if(products) {%>
+        <%  for(let i=0;i<products.length;i++) { %>
+        <div class="item">
+            <div class="common item-front">
+            <div class="title"><%=products[i].title%></div>
+            <img class="image" src="<%=products[i].image%>" alt="">
+            <div class="price">Price: <%=products[i].price%>$</div>
+            <input type="hidden" class="price1" value="<%=products[i].price%>">
+        </div>
+        <div class="common item-back" style="width: 100%;">
+            <div class="title-back"><%=products[i].title%></div>
+            <div class="summary"><%=products[i].summary%></div>
+            <form action="/cart" method="POST">
+         <input type="hidden" class="sellerId" name="sellerId" value="<%=products[i].seller_id%>">
+         <input type="hidden" class="bigdescription" value="<%=products[i].description%>">
+            <div class="buttons">
+                <button type="submit" class="cart">Add to cart</button>
+                <button  class="view">Quick view <input type="hidden"  class="productId" name="productId" value="<%=products[i].id%>"></button>
+            </div>
+        </form>
+        </div>
+        </div>
+        <% } %>
+    </section>
+    
+        <% }%>
+
+<section class="quick_view invisible">
+    <img src="./images/Labrador_on_Quantock_(2175262184).jpg" class="view_image" alt="">
+    <div class="summarized">
+     <h3 class="title-view">A beautiful labrador</h3>
+    <div class="description"> consectetur, ullam provident dolor, asperiores fugit repellendus? Sed consequatur, lorem blanditiis tempora nihil molestias consectetur dicta quo. lorem  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi iusto maxime eius exercitationem earum facere cupiditate dignissimos ratione, inventore amet dolores adipisci libero beatae sunt, repellat quae saepe hic cumque.</div>
+    </div>
+<div class="basic_details">
+    <form action="/cart" method="POST">
+    <div class="price_view real_price ">$30</div>
+    <label for="">Quantity:</label><br>
+    <input class="quantity" name="quantity"  type="number"><br>
+    <label class="total_price" for=""> Price:</label><br>
+    <input readonly type="text" class="total"><br>
+    <div class="Cart">
+    <input type="hidden" class="productIdq" name="productId">
+    <button type="submit" class="cart">Add To Cart</button>
+    </form>
+</div>
+</section>
+</main>
+</body>
+<script>
+    let title=document.querySelectorAll('.title')
+    let images=document.querySelectorAll('.image');
+    let view_image=document.querySelector('.view_image');
+    let prices=document.querySelectorAll('.price');
+    let productId=document.querySelectorAll('.productId');
+    let value1=document.querySelector('.productIdq');
+    let cross=document.querySelector('.cross');
+    let quick_view=document.querySelector('.quick_view');
+    let view=document.querySelectorAll('.view');
+    let search=document.querySelector('.search');
+    let items=document.querySelector('.items');
+    let nav=document.querySelector('nav');
+    let price=document.querySelector('.price');
+    let quantity=document.querySelector('.quantity');
+    let real_price=document.querySelector('.real_price');
+    let total=document.querySelector('.total');
+    let titleview=document.querySelector('.title-view');
+    let Bigdescription=document.querySelectorAll('.bigdescription');
+    let description=document.querySelector('.description')
+    var temp;
+    total.value=+real_price.innerHTML.substr(1);
+    let price1=document.querySelectorAll('.price1');
+    for(let i=0;i<view.length;i++)
+    {
+    view[i].addEventListener('click',function(e)
+    { 
+        e.preventDefault();
+        value1.value=productId[i].value;
+        console.log(value1);
+        console.log("Yeah baby you clicked");
+        titleview.innerHTML= title[i].innerHTML;
+        real_price.innerHTML=prices[i].innerHTML;
+        total.value=+price1[i].value;
+        view_image.src=images[i].src;
+        temp=+price1[i].value;
+        description.innerHTML=Bigdescription[i].value;
+        search.classList.add('blur');
+        items.classList.add('blur');
+         nav.classList.add('blur');
+        quick_view.classList.remove('invisible')
+          
+    })
+    
+    }
+
+document.onkeydown=function(e)
+{
+    if(e.keyCode==27)
+    {   
+        search.classList.remove('blur');
+        items.classList.remove('blur');
+         nav.classList.remove('blur');
+        quick_view.classList.add('invisible')
+    }
+}
+quantity.oninput=function()
+{  
+    total.value=this.value*+temp;
+}
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/cart.css">
+    
+</head>
+<body>
+<%- include('./nav.ejs')  %>
+<h2>Your cart items:</h2><hr>
+<section class="cart1">
+    <% if(products[0]!==undefined) {%>
+    <%for(let i=0;i<products.length;i++) {%>
+<article class="cart_items">
+<img src="<%=products[i].image%>" alt="" class="image1">
+<div class="details">
+<div>Title: <%=products[i].title%> </div>
+ <div>Price: <%=products[i].price%>$</div>
+ <div class="quantity">
+ <div>Quantity: <%=products[i].quantity%> </div>
+</div>
+</div>
+<form action="/delete-cart" method="POST">
+    <input type="hidden" name="productId" value="<%=products[i].id%>">
+    <button class="delete">X</button> 
+</form>
+</article>
+<% }%>
+<% } else {%>
+<h1>No items in the cart</h1>
+<%}%>
+</section>
+<hr>
+<h2>In order to purchase these items click on order</h2>
+<div class="container">
+<form action="/order" method="POST">
+    <input type="hidden" name="buyerId" value="<%=buyerId%>">
+    <button class="order">Order</button>
+</form>
+</div>
+<hr>
+</body>
+</html>

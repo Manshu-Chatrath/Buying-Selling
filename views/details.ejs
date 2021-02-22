@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/details.css">
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+        <ul class="nav1">
+            <li><a href="/">Home</a></li>
+            <%if(buyer) { %>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a>Orders</a></li>
+            <%  } else if(seller) {%>
+            <li><a href="/input">Sell Products</a></li>
+            <li><a href="/myproducts">My Products</a></li>
+                <% } %>
+        </ul>
+        <ul class="nav2">
+            <% if(buyer || seller) {%>
+            <form action="/logout" method="POST">
+                <li><button style="border: none; background-color: rgb(51,51,51); box-shadow: none;" type="submit">LogOut</button></li>
+            </form>
+            <% } else { %>
+                <li><a href="/ask/signin">SignIn</a></li>
+                <li><a href="/ask/login">LogIn</a></li>
+            <% } %>
+        </ul>
+        </nav>
+        </header>
+    <h1 class="title"><%=product.title%></h1><hr>
+    <section class="details">
+    <div class="image">
+    <img src="../<%=product.image%>" alt=""><br>
+    <div class="price">Price :<%=product.price%>$</div>
+</div>
+<div class="para">
+<p><%=product.description%>
+</p>
+</div>
+
+</section>
+</html>

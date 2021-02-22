@@ -1,0 +1,143 @@
+
+.main
+{   max-width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: auto auto auto;    
+    grid-row-gap: 5rem;
+}
+.search
+{
+    grid-row: 1/2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.logo
+{
+background: url('./images/Capture.jpeg');
+ width: 350px;
+ height: 80px;
+  background-size: 350px 80px;/*first one is width and second one is height*/
+}
+.searching
+{
+    display: flex;
+}
+.searchItem
+{
+    width: 300px;
+    height: 30px;
+    border-radius: 2px;
+   border-color: #D6D4D4;
+   border-width: thin;
+}
+.searchButton
+{
+    width: auto;
+    border: none;
+background-color: #333333;
+color: white;
+}
+.button
+{   height: 30px;
+    padding: 0 15px;
+    width: auto;
+    border: none;
+background-color: #333333;
+color: white;
+}
+.searchItem:focus {
+    outline: none;
+  }
+@media(max-width: 1404px)
+{
+    .main
+{   max-width: 100%;
+    margin: auto ;
+    
+}
+}
+@media(max-width: 1134px)
+{
+    .main
+{   max-width: 100%;
+    margin: auto 5%;
+}
+}
+  @media (max-width: 883px)
+  {
+    .main
+    {   width: 80vw;
+        margin-left: 10vw;
+    }
+    .search
+    {
+     flex-direction: column;
+     margin-top: 10px;
+    }
+    .button
+{   
+    width: 80vw;
+    padding: 0;
+    text-align: center;
+}
+.searching
+{  margin-left: 0%;
+    width: 80vw;
+    margin-bottom: 15px;
+}
+.searchItem
+{
+    width: 70vw;
+}
+.searchButton
+{
+    width: 9vw;
+}
+.logo
+{
+    width: 80vw;
+    height: 80px;
+    background-size: 80vw 80px;
+    margin-bottom: 15px;
+}
+  }
+  @media (max-width: 604px)
+  { 
+    .searchItem
+    {
+        width: 67vw;
+    }
+    .searchButton
+ 
+    {
+        width: 11vw;
+    }   
+  }
+  @media (max-width: 448px)
+  { 
+    .searchItem
+    {
+        width: 63vw;
+    }
+    .searchButton
+ 
+    {
+        width: 15vw;
+    }   
+  }
+  @media (max-width: 360px)
+  { 
+    .searchItem
+    {
+        width: 58vw;
+    }
+    .searchButton
+ 
+    {
+        width: 19vw;
+    }   
+  }

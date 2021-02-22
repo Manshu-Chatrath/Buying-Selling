@@ -1,0 +1,164 @@
+.nav 
+{
+height: auto;
+background-color: #333333;
+width: auto;
+align-items: center;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 15px;
+}
+button
+{
+    transition: all .2s;
+}
+.edit-button
+{
+    transition: all .2s;
+    width: 40%;  background-color: black;font-size: 1.2rem; border-radius: 5%; padding: .5rem 0;text-align: center; vertical-align: center;
+    border: 1px solid gray;
+}
+.edit-button:hover
+{
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px black;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 2px black; }
+
+
+    a{
+    text-decoration: none;
+    color: white
+}
+    .nav1
+{
+    display: flex;
+    justify-content: space-between
+}
+.nav2
+{
+    display: flex;
+    margin: 0;
+    padding: 1rem;
+    margin-left: 40%;
+    flex-grow: 10;
+    justify-content: flex-end;
+   
+}
+li
+{   display: block;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    margin-left: 2rem;
+}
+li:hover
+{
+    font-weight: bolder;
+}
+.active
+{
+font-weight: bolder;
+color: yellow;
+}
+@media(max-width: 1000px)
+{
+.nav2
+{
+    display: flex;
+    padding: 10px;
+    
+} 
+
+
+}
+@media(max-width: 1486px)
+{   
+.nav2
+{
+    display: flex;
+    margin-left: 0px;
+    padding: 10px;
+   
+} 
+
+}
+
+@media (max-width: 700px) {
+li
+{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    margin-left: 1vw;
+}
+.nav1 li
+{
+    margin-left: 14px;
+    margin-right: 0.7vw;
+}
+.nav2 li
+{
+    margin-left: 10px;
+}
+.nav1
+{
+
+display: flex;
+ flex-wrap: wrap;
+    
+}
+}
+@media (max-width: 410px) {
+.nav1 li
+{
+    margin-left: 8px;
+    margin-right: 0.3vw;
+}
+.nav1
+{
+
+display: flex;
+ flex-wrap: wrap;
+    
+}
+}
+@media (max-width: 370px) {
+
+.nav1 li
+{
+    margin-left: 7px;
+   
+}
+.nav1
+{
+
+display: flex;
+ flex-wrap: wrap;
+    
+}
+}
+@media (max-width: 358px) {
+
+    .nav1 li
+    {
+        margin-left: 7px;
+        padding-top: 5px;
+        padding-left: 10px;
+    }
+    .nav1
+    {
+    
+    display: flex;
+     flex-wrap: wrap;
+        
+    }
+}
+li :hover
+{
+    cursor: pointer;
+}    
+

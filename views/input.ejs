@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <%- include('./nav.ejs')  %>
+    <%if(error) {%>
+        <div style="text-align: center; color: red;"><%=error%></div>  
+    <%}%>
+    <section class="section_form this_form">
+   <form  action="<%if(editing) { %> /edit <%} else {%>/input<%}%>"  class="form1" method="POST"  enctype="multipart/form-data">
+       <h2>Fill the details</h3>
+    <label for="title">Title:</label><br>
+    <input class="input" name="title" placeholder="Enter title" type="text"  value="<%if(editing) { %> <%=product.title%> <%}%>"><br>
+    <label for="summary" >Summary:</label><br>
+   <textarea  maxlength="150" name="summary" placeholder="Enter a short summary"  id="" cols="50" rows="5" ><%if(editing) { %> <%=product.summary%> <%}%></textarea><br>
+    <label for="price" >Price:</label><br>
+    <input name="price" class=" input" placeholder="Enter the price" type="text" value="<%if(editing) { %> <%=product.price%> <%}%>"><br>
+    <label for="url">Image:</label><br>
+    <input name="url" class="file" required type="file" value="<%if(editing) { %> <%=product.image%> <%}%>"><br>
+    <label for="description">Description:</label><br>
+    <textarea name="description" placeholder="Enter the description"  maxlength="300" cols="50" rows="10"><%if(editing) { %> <%=product.description%> <%}%></textarea><br>
+    <%if(editing) {%>
+        <input  type="hidden" name="productId" value="<%=product.id%>">
+        <button class="add">Update Product</button>
+        <% } else {%>
+            <button class="add">Add Product</button>
+            <%}%>
+           
+</form> 
+</section>
+</body>
+</html>

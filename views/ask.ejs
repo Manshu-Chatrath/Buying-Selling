@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying and Selling</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/ask.css">
+</head>
+<body>
+<%- include('./nav.ejs')  %>
+<section class="box">
+<% if(option=='signin') { %>
+    <p class="para">How you want to register yourself as ? </p>
+    <form action="/signin/seller" method="GET">
+        <button class="button sellersignin" style="width: 47%;height: 2rem;background-color: black;">Seller</button><br>
+    </form>
+    <form action="/signin/buyer">
+        <button class="button consumersignin" style="width: 47%;height: 2rem;background-color: black">Consumer</button>
+    </form>
+ 
+    <%} else if(option=='login') {%>
+        <p class="para">How you want to login? </p>
+        <form action="/login/seller" method="GET">
+            <button class="button slogin" style="width: 47%;height: 2rem;background-color: black;"><a  href="/login/seller">Seller</a></button><br>   
+        </form>
+     <form action="/login/buyer" method="GET">
+        <button class="button clogin"  style="width: 47%;height: 2rem;background-color: black;"><a href="/login/buyer">Consumer</a></button>
+    </form>
+   
+        <% }%>
+</section>
+</body>
+
+</html>

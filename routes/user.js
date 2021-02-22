@@ -1,0 +1,25 @@
+const express=require('express');
+const app=express();
+const controller=require('../controller/user');
+const {check}=require('express-validator');
+app.get('/',controller.get);
+app.get('/recently',controller.recent);
+app.get('/myproducts',controller.myproducts);
+app.get('/input',controller.input);
+app.post('/input',[check('price').isNumeric().withMessage('Please enter a number in price')],controller.postinput);
+app.post('/delete',controller.delete);
+app.get('/edit-product/:productId',controller.edit);
+app.post('/edit',[check('price').isNumeric().withMessage('Please enter a number in price')],controller.postedit);
+app.get('/details/:productId',controller.details);
+app.get('/products',controller.products);
+app.post('/cart',controller.postcart);
+app.get('/cart',controller.getcart);
+app.post('/delete-cart',controller.deletecart);
+app.get('/recent',controller.recent);
+app.post('/search',controller.search);
+app.get('/search',controller.getsearch);
+app.post('/order',controller.postorder);
+app.get('/orders',controller.getorder);
+
+//app.get('/search',controller.getsearch);
+module.exports=app;     

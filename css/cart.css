@@ -1,0 +1,104 @@
+h2  
+{
+    text-align: center;
+}
+.cart1
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+padding-top: 5px;
+padding-bottom: 5px;
+height: auto;
+}
+.cart_items
+{
+width: 40%;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+height: 8rem;
+display: flex;
+margin-bottom: 30px;
+position: relative;
+}
+.details
+{
+    flex: 1;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.image1
+{
+    width: 40%;
+}
+.order
+{cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    
+   }
+   .container
+   {
+       display: flex;
+       justify-content: center;
+   }
+   .delete
+{
+    position: absolute;
+    top: 2%;
+    font-weight: bold;
+    color: red;
+    left: 95%;
+    background-color: inherit;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+   .edit
+   {cursor: pointer;
+    width: 3rem;
+    height: 1rem;
+    font-weight: bold;
+    margin-top: 6px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    margin-left: 3px;   
+   }
+   .quantity
+   {
+       display: flex;
+   }
+   @media(max-width: 981px)
+{   .cart_items {
+    width: 70%;
+} 
+.delete
+{
+    left: 93%;
+}
+}
+@media(max-width: 587px)
+{   .cart_items {
+    width: 90%;
+} 
+}
+
+@media(max-width: 370px)
+{   .cart_items {
+    width: 95%;
+} 
+}
+@media(max-width: 300px)
+{   .cart_items {
+    width: 99%;
+} 
+}
